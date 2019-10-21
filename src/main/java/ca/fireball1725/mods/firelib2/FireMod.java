@@ -1,4 +1,4 @@
-package ca.fireball1725.firelib2;
+package ca.fireball1725.mods.firelib2;
 
 import net.minecraft.block.Block;
 import net.minecraftforge.eventbus.EventBus;

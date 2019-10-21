@@ -1,4 +1,4 @@
-package ca.fireball1725.firelib2.common.items;
+package ca.fireball1725.mods.firelib2.common.items;
 
 import net.minecraft.item.Item;
 

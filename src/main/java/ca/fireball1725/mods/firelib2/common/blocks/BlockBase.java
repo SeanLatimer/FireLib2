@@ -1,8 +1,8 @@
-package ca.fireball1725.firelib2.common.blocks;
+package ca.fireball1725.mods.firelib2.common.blocks;
 
-import ca.fireball1725.firelib2.common.tileentities.TileEntityBase;
-import ca.fireball1725.firelib2.util.OrientationTools;
-import ca.fireball1725.firelib2.util.RotationType;
+import ca.fireball1725.mods.firelib2.common.tileentities.TileEntityBase;
+import ca.fireball1725.mods.firelib2.util.OrientationTools;
+import ca.fireball1725.mods.firelib2.util.RotationType;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;

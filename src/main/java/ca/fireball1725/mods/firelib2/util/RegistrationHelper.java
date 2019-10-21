@@ -1,8 +1,8 @@
-package ca.fireball1725.firelib2.util;
+package ca.fireball1725.mods.firelib2.util;
 
-import ca.fireball1725.firelib2.common.blocks.BlockBase;
-import ca.fireball1725.firelib2.common.blocks.IBlockItemProvider;
-import ca.fireball1725.firelib2.common.blocks.IItemPropertiesFiller;
+import ca.fireball1725.mods.firelib2.common.blocks.BlockBase;
+import ca.fireball1725.mods.firelib2.common.blocks.IBlockItemProvider;
+import ca.fireball1725.mods.firelib2.common.blocks.IItemPropertiesFiller;
 import com.google.common.collect.ArrayListMultimap;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
