@@ -1,4 +1,4 @@
-package ca.fireball1725.firelib2.common.recipes;
+package ca.fireball1725.mods.firelib2.common.recipes;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;

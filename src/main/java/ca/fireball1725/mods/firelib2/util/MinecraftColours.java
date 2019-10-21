@@ -1,4 +1,4 @@
-package ca.fireball1725.firelib2.util;
+package ca.fireball1725.mods.firelib2.util;
 
 public enum MinecraftColours {
   WHITE(0xf9fffe),

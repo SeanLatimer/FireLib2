@@ -1,4 +1,4 @@
-package ca.fireball1725.firelib2.common.tileentities;
+package ca.fireball1725.mods.firelib2.common.tileentities;
 
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;

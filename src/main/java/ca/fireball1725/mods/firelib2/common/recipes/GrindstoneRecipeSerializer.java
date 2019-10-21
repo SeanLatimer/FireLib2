@@ -1,9 +1,8 @@
-package ca.fireball1725.firelib2.common.recipes;
+package ca.fireball1725.mods.firelib2.common.recipes;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
