@@ -25,16 +25,42 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 public abstract class BlockBase extends Block {
-  public BlockBase(Properties properties) {
-    super(properties);
-  }
-  private TileEntityType<? extends TileEntity> tileEntityType;
-  private Supplier<TileEntity> tileEntitySupplier;
-  private boolean canRotate = false;
-
   public static final IProperty<?>[] ROTATION_HORIZONTAL_PROPERTIES = new IProperty[]{BlockStateProperties.HORIZONTAL_FACING};
   public static final IProperty<?>[] ROTATION_FULL_PROPERTIES = new IProperty[]{BlockStateProperties.FACING};
   public static final IProperty<?>[] ROTATION_NONE_PROPERTIES = new IProperty[0];
+  private TileEntityType<? extends TileEntity> tileEntityType;
+  private Supplier<TileEntity> tileEntitySupplier;
+  private boolean canRotate = false;
+  public BlockBase(Properties properties) {
+    super(properties);
+  }
+
+  public static Direction getFacingFromEntity(BlockPos clickedBlock, LivingEntity entity) {
+    return Direction.getFacingFromVector((float) (entity.posX - clickedBlock.getX()), (float) (entity.posY - clickedBlock.getY()), (float) (entity.posZ - clickedBlock.getZ()));
+  }
+
+  public static IProperty<?>[] getProperties(RotationType rotationType) {
+    switch (rotationType) {
+      case FULL:
+        return ROTATION_FULL_PROPERTIES;
+      case HORIZONTAL:
+        return ROTATION_HORIZONTAL_PROPERTIES;
+      case NONE:
+      default:
+        return ROTATION_NONE_PROPERTIES;
+    }
+  }
+
+  public static Direction getFrontDirection(RotationType rotationType, BlockState state) {
+    switch (rotationType) {
+      case FULL:
+        return OrientationTools.getOrientation(state);
+      case HORIZONTAL:
+        return OrientationTools.getOrientationHorizontal(state);
+      default:
+        return Direction.SOUTH;
+    }
+  }
 
   public Item.Properties getItemProperties() {
     return new Item.Properties();
@@ -66,20 +92,9 @@ public abstract class BlockBase extends Block {
     this.canRotate = canRotate;
   }
 
-
-
-
   @Override
   protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-    builder.add(BlockStateProperties.FACING);
-  }
-
-
-
-
-
-  public static Direction getFacingFromEntity(BlockPos clickedBlock, LivingEntity entity) {
-    return Direction.getFacingFromVector((float) (entity.posX - clickedBlock.getX()), (float) (entity.posY - clickedBlock.getY()), (float) (entity.posZ - clickedBlock.getZ()));
+    builder.add(getProperties());
   }
 
   public RotationType getRotationType() {
@@ -88,18 +103,6 @@ public abstract class BlockBase extends Block {
 
   protected IProperty<?>[] getProperties() {
     return getProperties(getRotationType());
-  }
-
-  public static IProperty<?>[] getProperties(RotationType rotationType) {
-    switch (rotationType) {
-      case FULL:
-        return ROTATION_FULL_PROPERTIES;
-      case HORIZONTAL:
-        return ROTATION_HORIZONTAL_PROPERTIES;
-      case NONE:
-      default:
-        return ROTATION_NONE_PROPERTIES;
-    }
   }
 
   @Nullable
@@ -164,16 +167,5 @@ public abstract class BlockBase extends Block {
 
   public Direction getLeftDirection(BlockState state) {
     return getFrontDirection(state).rotateY();
-  }
-
-  public static Direction getFrontDirection(RotationType rotationType, BlockState state) {
-    switch (rotationType) {
-      case FULL:
-        return OrientationTools.getOrientation(state);
-      case HORIZONTAL:
-        return OrientationTools.getOrientationHorizontal(state);
-      default:
-        return Direction.SOUTH;
-    }
   }
 }
